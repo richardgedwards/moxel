@@ -40,17 +40,17 @@ def remove_keymap_conflicts(new_keys_set):
 
 
 if __name__=="__main__":
-    with h5py.File('sphere.hdf5', 'r') as f:
-        volume = f['mesh']
+    with h5py.File('./msh/sphere/sphere.hdf5', 'r') as f:
+        volume = f['moxel']
         # remove_keymap_conflicts({'j', 'k'})
         # fig, ax = plt.subplots()
         # ax.index = 0
         # ax.imshow(volume[:,:,ax.index].T)
         # fig.canvas.mpl_connect('key_press_event', process_key)
 
-        for k in np.arange(100):
-            plt.imshow(volume[:,:,k])
+        for k in np.arange(63,798):
+            plt.imshow(volume[:,:,k].T)
             print(k)
             plt.pause(0.0001)
-        plt.show()
+        # plt.show()
 

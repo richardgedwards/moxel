@@ -10,12 +10,12 @@ from time import time
 
 
 if __name__=="__main__":
-    with h5py.File('./msh/omd.hdf5', 'r') as f:
+    with h5py.File('./msh/sphere/sphere.hdf5', 'r') as f:
         dset = f['moxel']
         img = np.array(dset[:,:,0])*255
         t0 = time()
-        for k in np.arange(0,946):
-            fname = './msh/omd/omd{:04d}.png'.format(k)
+        for k in np.arange(1002,1052):
+            fname = './msh/sphere/sphere{:04d}.png'.format(k)
             print(fname)
             img = np.array(dset[:,:,k])*255
             cv2.imwrite(fname, img)
